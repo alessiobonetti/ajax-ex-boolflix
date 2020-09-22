@@ -17,9 +17,17 @@
   justify-content: center;
 }
 
+.search_bar label {
+  padding-right: 10px;
+}
+
 #search {
   height: 25px;
   width: 50%;
+}
+
+.search_button_container{
+  padding-left: 10px;
 }
 /* /SEARCH BAR */
 
