@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- css style -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" charset="utf-8"></script>
     <title>Boolstrix</title>
   </head>
   <body>
@@ -44,31 +46,33 @@
 
     <!-- template -->
     <script id="movie-template" type="text/x-handlebars-template">
-      <ul>
-        <li>
-          <!-- movie title -->
-          <div class="movie_title">{{title}}</div>
-          <!-- /movie title -->
-        </li>
+      <div class="box_template">
+        <ul>
+          <li>
+            <!-- movie title -->
+            <div class="movie_title">TITOLO: {{title}}</div>
+            <!-- /movie title -->
+          </li>
 
-        <li>
-          <!-- original title -->
-          <div class="movie_original_title">{{original_title}}</div>
-          <!-- /original title -->
-        </li>
+          <li>
+            <!-- original title -->
+            <div class="movie_original_title">TITOLO ORIGINALE: {{original_title}}</div>
+            <!-- /original title -->
+          </li>
 
-        <li>
-          <!-- language -->
-          <div class="movie_language">{{language}}</div>
-          <!-- /language -->
-        </li>
+          <li>
+            <!-- language -->
+            <div class="movie_language">LINGUA: {{language}}</div>
+            <!-- /language -->
+          </li>
 
-        <li>
-          <!-- vote -->
-          <div class="movie_vote">{{vote}}</div>
-          <!-- /vote -->
-        </li>
+          <li>
+            <!-- vote -->
+            <div class="movie_vote">VOTO: {{vote}}</div>
+            <!-- /vote -->
+          </li>
         </ul>
+      </div>
     </script>
     <!-- /template -->
     <!-- Java Script -->

@@ -34,4 +34,20 @@
 /* /HEADER */
 
 /* MAIN */
+/* MOVIEBOX */
+#movie_box{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.box_template {
+  width: 30%;
+  border: 1px solid #000;
+  text-align: center;
+}
+
+.box_template ul {
+  list-style: none;
+}
+/* /MOVIEBOX */
 /* /MAIN */
