@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+
+/* SEARCH BAR */
+.search_bar {
+  height: 50px;
+  width: 1080px;
+  margin: 0 auto;
+  background-color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#search {
+  height: 25px;
+  width: 50%;
+}
+/* /SEARCH BAR */
+
+/* /HEADER */
+
+/* MAIN */
+/* /MAIN */
