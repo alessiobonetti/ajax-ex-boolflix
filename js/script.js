@@ -1,4 +1,4 @@
-function callMovie (movie) {
+function callMovie(movie) {
   $.ajax(
     {
       "url":"https://api.themoviedb.org/3/search/movie" ,
@@ -18,11 +18,12 @@ function callMovie (movie) {
   );
 }
 
-function movieRender (ele){
+function movieRender(ele) {
   var source = $("#movie-template").html();
   var template = Handlebars.compile(source);
-  var movieVote = takeVote (ele)
   for(var i =0; i<ele.length; i++){
+    var movieVote = takeVote(ele);
+    console.log(movieVote);
     var context = {
       "title": ele[i].title,
       "original_title": ele[i].original_title,
@@ -34,20 +35,19 @@ function movieRender (ele){
   }
 }
 
-function cleanSearch (){
+function cleanSearch() {
   $("#movie_box").html("");
   $("#search").val("");
 }
 
-function takeVote (ele) {
-  for(var i =0; i<ele.length; i++){
-    var getElement = ele[i].vote_average;
-    conversionNumber (getElement);
+function takeVote(ele) {
+  for (var key in ele) {
+    return ele[key].vote_average;
   }
 }
 
-function conversionNumber (num) {
-  num = Math.ceil(num /2);
+function conversionNumber(num) {
+  return Math.ceil(num /2);
 }
 
 $(document).ready(
