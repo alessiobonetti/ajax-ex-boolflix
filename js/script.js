@@ -21,17 +21,33 @@ function callMovie (movie) {
 function movieRender (ele){
   var source = $("#movie-template").html();
   var template = Handlebars.compile(source);
-
+  var movieVote = takeVote (ele)
   for(var i =0; i<ele.length; i++){
     var context = {
       "title": ele[i].title,
       "original_title": ele[i].original_title,
       "language": ele[i].original_language,
-      "vote": ele[i].vote_average
+      "vote": movieVote
     };
     var html = template(context);
     $("#movie_box").append(html);
   }
+}
+
+function cleanSearch (){
+  $("#movie_box").html("");
+  $("#search").val("");
+}
+
+function takeVote (ele) {
+  for(var i =0; i<ele.length; i++){
+    var getElement = ele[i].vote_average;
+    conversionNumber (getElement);
+  }
+}
+
+function conversionNumber (num) {
+  num = Math.ceil(num /2);
 }
 
 $(document).ready(
@@ -40,6 +56,17 @@ $(document).ready(
       function(){
         var searchedMovie = $("#search").val();
         callMovie (searchedMovie);
+        cleanSearch ();
+      }
+    );
+
+    $("#search").keyup(
+      function(event){
+        if(event.which == 13){
+          var searchedMovie = $("#search").val();
+          callMovie (searchedMovie);
+          cleanSearch ();
+        }
       }
     );
   }
