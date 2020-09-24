@@ -11,7 +11,7 @@ function callMovie(movie) {
       "method": "GET",
       "success": function(data) {
         // stampo i dati nel tamplate e appendo
-        movieRender (data.results);
+        render ("movie",data.results);
       },
       "error": function(err) {
         alert("Errore");
@@ -33,7 +33,7 @@ function callSeries(series) {
       "method": "GET",
       "success": function(data) {
         // stampo i dati nel tamplate e appendo
-        seriesRender(data.results);
+        render("series",data.results);
       },
       "error": function(err) {
         alert("Errore");
@@ -42,8 +42,8 @@ function callSeries(series) {
   );
 }
 
-// funzione tamplate e append risultato serietv
-function seriesRender(ele) {
+// funzione tamplate e append risultato movie e serie tv
+function render(type, ele) {
 
   var source = $("#movie-template").html();
   var template = Handlebars.compile(source);
@@ -52,43 +52,57 @@ function seriesRender(ele) {
 
     var posterUrl = "https://image.tmdb.org/t/p/w185";
 
+    var title;
+    var original_title;
+    var container;
+
+    if(type == "movie"){
+      title = ele[i].title;
+      original_title = ele[i].original_title;
+      container = $("#movie_box");
+    } else if (type == "series"){
+      title = ele[i].name;
+      original_title = ele[i].original_name;
+      container = $("#series_box");
+    }
+
     var context = {
       "poster": posterUrl+ele[i].poster_path,
-      "title": ele[i].name,
-      "original_title": ele[i].original_name,
+      "title": title,
+      "original_title": original_title,
       "language": conversionInStar(ele[i].vote_average),
       "vote": flagPrinter(ele[i].original_language)
     };
 
     var html = template(context);
 
-    $("#series_box").append(html);
+    container.append(html);
   }
 }
 
 // funzione tamplate e append risultato film
-function movieRender(ele) {
-
-  var source = $("#movie-template").html();
-  var template = Handlebars.compile(source);
-
-  for(var i =0; i<ele.length; i++){
-
-    var posterUrl = "https://image.tmdb.org/t/p/w185";
-
-    var context = {
-      "poster": posterUrl+ele[i].poster_path,
-      "title": ele[i].title,
-      "original_title": ele[i].original_title,
-      "language": conversionInStar(ele[i].vote_average),
-      "vote": flagPrinter(ele[i].original_language)
-    };
-
-    var html = template(context);
-
-    $("#movie_box").append(html);
-  }
-}
+// function movieRender(ele) {
+//
+//   var source = $("#movie-template").html();
+//   var template = Handlebars.compile(source);
+//
+//   for(var i =0; i<ele.length; i++){
+//
+//     var posterUrl = "https://image.tmdb.org/t/p/w185";
+//
+//     var context = {
+//       "poster": posterUrl+ele[i].poster_path,
+//       "title": ele[i].title,
+//       "original_title": ele[i].original_title,
+//       "language": conversionInStar(ele[i].vote_average),
+//       "vote": flagPrinter(ele[i].original_language)
+//     };
+//
+//     var html = template(context);
+//
+//     $("#movie_box").append(html);
+//   }
+// }
 
 // funzione per svuotare i risultati della ricerca precedente
 function cleanSearch() {
