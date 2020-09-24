@@ -50,7 +50,10 @@ function seriesRender(ele) {
 
   for(var i =0; i<ele.length; i++){
 
+    var posterUrl = "https://image.tmdb.org/t/p/w185";
+
     var context = {
+      "poster": posterUrl+ele[i].poster_path,
       "title": ele[i].name,
       "original_title": ele[i].original_name,
       "language": conversionInStar(ele[i].vote_average),
@@ -71,7 +74,10 @@ function movieRender(ele) {
 
   for(var i =0; i<ele.length; i++){
 
+    var posterUrl = "https://image.tmdb.org/t/p/w185";
+
     var context = {
+      "poster": posterUrl+ele[i].poster_path,
       "title": ele[i].title,
       "original_title": ele[i].original_title,
       "language": conversionInStar(ele[i].vote_average),
