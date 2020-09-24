@@ -70,8 +70,8 @@ function render(type, ele) {
       "poster": posterUrl+ele[i].poster_path,
       "title": title,
       "original_title": original_title,
-      "language": conversionInStar(ele[i].vote_average),
-      "vote": flagPrinter(ele[i].original_language)
+      "language": flagPrinter(ele[i].original_language),
+      "vote": conversionInStar(ele[i].vote_average)
     };
 
     var html = template(context);
@@ -134,7 +134,7 @@ function flagPrinter(lang) {
     "ru"
   ];
   if(flag.includes(lang)){
-    return "<img class='language_img' src='img/"+lang+".svg'>";
+    return lang
   }
   return lang;
 }
