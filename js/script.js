@@ -119,7 +119,7 @@ function flagPrinter(lang) {
   return lang;
 }
 
-// Documento
+// Documento principale
 $(document).ready(
   function(){
     $(".search_button").click(

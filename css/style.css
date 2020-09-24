@@ -34,8 +34,17 @@
 /* /HEADER */
 
 /* MAIN */
+#main {
+  display: flex;
+}
+.movie_container{
+  width: 50%;
+}
+.series_container{
+  width: 50%;
+}
 /* MOVIEBOX */
-#movie_box{
+#movie_box #series_box{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
