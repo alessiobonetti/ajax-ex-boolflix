@@ -49,5 +49,9 @@
 .box_template ul {
   list-style: none;
 }
+
+.language_img {
+  width: 20px;
+}
 /* /MOVIEBOX */
 /* /MAIN */
