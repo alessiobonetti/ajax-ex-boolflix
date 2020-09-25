@@ -164,5 +164,12 @@ $(document).ready(
         }
       }
     );
+    $(".box_template").hover(
+      function(){
+
+        $(".list_details").removeClass(".hide");
+        $(".list_details").addClass("show");
+      }
+    );
   }
 );

@@ -25,6 +25,15 @@ body{
   box-shadow: -2px -5px 13px 6px #777;
 }
 
+/* SHOW HIDE */
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
 /* HEADER */
 
 /* SEARCH BAR */
@@ -71,12 +80,14 @@ body{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding: 5px;
 }
 
 #series_box{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding: 5px;
 }
 
 /* TEMPLATE */
