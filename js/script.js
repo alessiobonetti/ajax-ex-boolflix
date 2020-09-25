@@ -49,8 +49,11 @@ function render(type, ele) {
   var template = Handlebars.compile(source);
 
   for(var i =0; i<ele.length; i++){
-
-    var posterUrl = "https://image.tmdb.org/t/p/w342";
+    if(ele[i].poster_path == null) {
+      var posterUrl = "img/no_poster.png";
+    } else {
+      var posterUrl = "https://image.tmdb.org/t/p/w342"+ele[i].poster_path;
+    }
 
     var title;
     var original_title;
@@ -67,7 +70,7 @@ function render(type, ele) {
     }
 
     var context = {
-      "poster": posterUrl+ele[i].poster_path,
+      "poster": posterUrl,
       "title": title,
       "original_title": original_title,
       "language": flagPrinter(ele[i].original_language),
