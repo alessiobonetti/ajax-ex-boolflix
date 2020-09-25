@@ -17,7 +17,7 @@
   </head>
   <body>
     <!-- header -->
-    <header id="header_bar">
+    <header id="header_bar" class="wrapper">
       <!-- search bar -->
       <div class="search_bar">
         <label class="search_label" for="search">
@@ -33,7 +33,7 @@
     <!-- /header -->
 
     <!-- main -->
-    <main id="main">
+    <main id="main" class="wrapper">
       <!-- cotainer for movies -->
       <div class="movie_container">
         <div id="movie_box">
@@ -54,37 +54,39 @@
     <!-- template -->
     <script id="movie-template" type="text/x-handlebars-template">
       <div class="box_template">
-        <ul>
+        <div class="poster_background">
           <!-- poster -->
-          <li >
-            <img src="{{poster}}" alt="">
-          </li>
+            <img src="{{poster}}" alt="{{title}}">
           <!-- /poster -->
-          <li>
-            <!-- movie title -->
-            <div class="movie_title">TITOLO: {{title}}</div>
-            <!-- /movie title -->
-          </li>
+        </div>
+        <div class="list_details">
+          <ul>
+            <li>
+              <!-- movie title -->
+              <div class="movie_title">TITOLO: {{title}}</div>
+              <!-- /movie title -->
+            </li>
 
-          <li>
-            <!-- original title -->
-            <div class="movie_original_title">TITOLO ORIGINALE: {{original_title}}</div>
-            <!-- /original title -->
-          </li>
+            <li>
+              <!-- original title -->
+              <div class="movie_original_title">TITOLO ORIGINALE: {{original_title}}</div>
+              <!-- /original title -->
+            </li>
 
-          <li>
-            <!-- language -->
+            <li>
+              <!-- language -->
 
-            <div class="movie_language">LINGUA: {{language}} <img class="language_img" src="img/{{language}}.svg"></div>
-            <!-- /language -->
-          </li>
+              <div class="movie_language">LINGUA: {{language}} <img class="language_img" src="img/{{language}}.svg"></div>
+              <!-- /language -->
+            </li>
 
-          <li>
-            <!-- vote -->
-            <div class="movie_vote">VOTO: {{{vote}}} </div>
-            <!-- /vote -->
-          </li>
-        </ul>
+            <li>
+              <!-- vote -->
+              <div class="movie_vote">VOTO: {{{vote}}} </div>
+              <!-- /vote -->
+            </li>
+          </ul>
+        </div>
       </div>
     </script>
     <!-- /template -->

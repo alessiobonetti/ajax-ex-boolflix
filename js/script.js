@@ -50,7 +50,7 @@ function render(type, ele) {
 
   for(var i =0; i<ele.length; i++){
 
-    var posterUrl = "https://image.tmdb.org/t/p/w185";
+    var posterUrl = "https://image.tmdb.org/t/p/w342";
 
     var title;
     var original_title;
