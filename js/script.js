@@ -58,6 +58,7 @@ function render(type, ele) {
     var title;
     var original_title;
     var container;
+    var typeOfMovie;
 
     if(type == "movie"){
       title = ele[i].title;
@@ -74,7 +75,8 @@ function render(type, ele) {
       "title": title,
       "original_title": original_title,
       "language": flagPrinter(ele[i].original_language),
-      "vote": conversionInStar(ele[i].vote_average)
+      "vote": conversionInStar(ele[i].vote_average),
+      "overview": ele[i].overview
     };
 
     var html = template(context);
@@ -142,34 +144,51 @@ function flagPrinter(lang) {
   return lang;
 }
 
+
 // Documento principale
 $(document).ready(
   function(){
+
     $(".search_button").click(
       function(){
-        var searchedMovie = $("#search").val();
-        callMovie (searchedMovie);
-        callSeries(searchedMovie);
-        cleanSearch ();
+        if($("#search").val() != "") {
+          var searchedMovie = $("#search").val();
+          callMovie (searchedMovie);
+          callSeries(searchedMovie);
+          cleanSearch ();
+        } else {
+          alert("Inserisci una ricerca valida");
+        }
+
       }
     );
 
     $("#search").keyup(
       function(event){
         if(event.which == 13){
-          var searchedMovie = $("#search").val();
-          callMovie (searchedMovie);
-          callSeries(searchedMovie);
-          cleanSearch ();
+          if($("#search").val() != "") {
+            var searchedMovie = $("#search").val();
+            callMovie (searchedMovie);
+            callSeries(searchedMovie);
+            cleanSearch ();
+          } else {
+            alert("Inserisci una ricerca valida");
+          }
         }
       }
     );
-    $(".box_template").hover(
-      function(){
 
-        $(".list_details").removeClass(".hide");
-        $(".list_details").addClass("show");
-      }
-    );
+    $(document).on("mouseenter", ".box_template",
+     function () {
+       $(this).children(".poster_background").fadeOut(500);
+       $(this).children(".list_details").fadeIn(500);
+      });
+
+      $(document).on("mouseleave", ".box_template",
+       function () {
+         $(this).children(".poster_background").fadeIn(500);
+         $(this).children(".list_details").fadeOut(500);
+        });
+
   }
 );

@@ -20,10 +20,13 @@
     <header id="header_bar" class="wrapper bck_black border_radius ">
       <!-- search bar -->
       <div class="search_bar border_radius">
+        <div class="boolflix_logo">
+          <img src="img/boolflix_logo.png" alt="boolflix logo">
+        </div>
         <label class="search_label" for="search">
           <i class="fa fa-search"></i>
         </label>
-        <input id="search" name="search" type="text" placeholder="cerca o un film">
+        <input id="search" name="search" type="text" placeholder="cerca un film">
         <div class="search_button_container">
           <button class="search_button" type="button" name="search_button">Cerca!</button>
         </div>
@@ -36,13 +39,20 @@
     <main id="main" class="wrapper bck_black border_radius">
       <!-- cotainer for movies -->
       <div class="movie_container">
+        <div class="type_of_movie hide">
+          <h2>MOVIE</h2>
+        </div>
         <div id="movie_box">
 
         </div>
       </div>
       <!-- /container for movies -->
+
       <!-- container for series -->
       <div class="series_container">
+        <div class="type_of_series hide">
+          <h2>SERIES</h2>
+        </div>
         <div id="series_box">
 
         </div>
@@ -63,7 +73,7 @@
           <ul>
             <li>
               <!-- movie title -->
-              <div class="movie_title">TITOLO: {{title}}</div>
+              <div class="movie_title height_50">TITOLO: {{title}}</div>
               <!-- /movie title -->
             </li>
 
@@ -84,6 +94,11 @@
               <!-- vote -->
               <div class="movie_vote">VOTO: {{{vote}}} </div>
               <!-- /vote -->
+            </li>
+            <li>
+              <!-- overview -->
+              <div class="movie_overview">{{overview}}</div>
+              <!-- /overview -->
             </li>
           </ul>
         </div>

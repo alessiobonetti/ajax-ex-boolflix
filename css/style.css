@@ -18,6 +18,10 @@ body{
   background-color:#000;
 }
 
+.height_50 {
+  height: 50px;
+}
+
 /* WRAPPER */
 .wrapper {
   width: 1080px;
@@ -40,15 +44,21 @@ body{
 .search_bar {
   height: 50px;
   width: 100%;
-  background-color: green;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   background-color: #000;
 }
+.boolflix_logo{
+  width: 20%;
+}
 
-.search_bar label {
-  padding-right: 10px;
+.boolflix_logo img{
+  width: 110px;
+}
+
+.search_label {
+  color: #fff;
 }
 
 #search {
@@ -57,6 +67,7 @@ body{
 }
 
 .search_button_container{
+  width: 20%;
   padding-left: 10px;
 }
 /* /SEARCH BAR */
@@ -65,16 +76,20 @@ body{
 
 /* MAIN */
 #main {
-  height: calc(100vh - 90px);
-  overflow-y: scroll;
+  height: calc(100vh - 100px);
+  overflow-y: auto;
   margin-top: 40px;
+  margin-bottom: 10px;
 }
-.movie_container{
+.movie_container.series_container{
   width: 100%;
 }
-.series_container{
-  width: 100%;
+
+.type_of_movie{
+  text-align: center;
+  color: #fff;
 }
+
 /* MOVIEBOX */
 #movie_box {
   display: flex;
@@ -100,6 +115,7 @@ body{
 }
 
 .box_template ul {
+  font-size: 1.3rem;
   color: #fff;
   list-style: none;
 }
@@ -118,8 +134,22 @@ body{
   top:0;
 }
 
+.list_details li {
+  padding: 15px 5px;
+}
+
 .language_img {
   width: 20px;
+}
+
+.movie_vote i {
+  color: yellow;
+}
+
+.movie_overview {
+  height: calc(100% - 60%);
+  height: 165px;
+  overflow-y: auto;
 }
 /* /TEMPLATE */
 /* /MOVIEBOX */
